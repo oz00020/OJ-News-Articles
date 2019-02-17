@@ -1,7 +1,8 @@
 class PagesController < ApplicationController
+before_action :find_page, only: [:show, :edit, :update, :destroy]
 
   def index
-    @pages = Page.all.order("make ASC")
+    @pages = Page.all.order("pageid ASC")
   end
 
   def page1
@@ -26,14 +27,26 @@ class PagesController < ApplicationController
     @page = Page.new
   end
 
+  def show
+  end
+
   def create
     @page = Page.new(page_params)
+
+    if @page.save
+      redirect_to root_path
+    else
+      render 'new'
+    end
   end
 
   private
 
   def page_params
-    params.require(:page).permit(:title, :body, :pageid, :category)
+    params.require(:page).permit(:title, :body, :pageid)
   end
 
+  def find_page
+    @page = Page.find(params[:pageid])
+  end
 end

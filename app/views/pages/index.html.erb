@@ -6,3 +6,7 @@
 <ul><li><%= link_to "page 3", page3_path %></li></ul>
 <ul><li><%= link_to "page 4", page4_path %></li></ul>
 <ul><li><%= link_to "page 5", page5_path %></li></ul>
+
+<% @pages.each do |page| %>
+  <h2><%= page.title %></h2>
+<% end %>
