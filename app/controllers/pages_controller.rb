@@ -36,7 +36,25 @@ before_action :find_page, only: [:show, :edit, :update, :destroy, :page1]
 
 
   def show
-    if @page.title
+    file = File.read('app/assets/javascripts/article1.json')
+    @page1 = JSON.parse(file)
+    file = File.read('app/assets/javascripts/article2.json')
+    @page2 = JSON.parse(file)
+    file = File.read('app/assets/javascripts/article3.json')
+    @page3 = JSON.parse(file)
+    case @page.id
+    when 9
+      render 'page1'
+    when 10
+      render 'page2'
+    when 3
+      render 'page3'
+    when 4
+      render 'page4'
+    when 5
+      render 'page5'
+    else
+    end
   end
 
   def new
