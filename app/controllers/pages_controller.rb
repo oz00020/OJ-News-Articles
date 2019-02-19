@@ -1,6 +1,9 @@
+
 class PagesController < ApplicationController
+
 before_action :find_page, only: [:show, :edit, :update, :destroy, :page1, :page2, :pag3, :page4, :page5]
 before_action :page1, :page2, :page3, :page4, :page5, only: [:show]
+before_action :show, only: [:page1, :page2, :page3, :page4, :page5]
 
   def index
     @pages = Page.all.order("title ASC")
@@ -9,21 +12,25 @@ before_action :page1, :page2, :page3, :page4, :page5, only: [:show]
   def page1
     file = File.read('app/assets/javascripts/article1.json')
     @page1 = JSON.parse(file)
+    @p2 = Page.second
   end
 
   def page2
     file = File.read('app/assets/javascripts/article2.json')
     @page2 = JSON.parse(file)
+    @p3 = Page.third
   end
 
   def page3
     file = File.read('app/assets/javascripts/article3.json')
     @page3 = JSON.parse(file)
+    @p4 = Page.fourth
   end
 
   def page4
     file = File.read('app/assets/javascripts/article4.json')
     @page4 = JSON.parse(file)
+    @p5 = Page.fifth
   end
 
   def page5
@@ -41,11 +48,11 @@ before_action :page1, :page2, :page3, :page4, :page5, only: [:show]
       render 'page1'
     when 2
       render 'page2'
-    when 2
-      render 'page3'
     when 3
-      render 'page4'
+      render 'page3'
     when 4
+      render 'page4'
+    when 5
       render 'page5'
     else
     end
