@@ -1,7 +1,8 @@
 
-<h4 align="right">Article | 4 | </h4>
+<div class="tile">
+<h4 align="right">Article  4  </h4>
 
-<h1><%= @page4["title"] %></h1>
+<h1><strong><%= @page4["title"] %></strong></h1>
 
 <h3><%= @page4["body"][0]["model"]["text"]%></h3>
 <p><%= @page4["body"][1]["model"]["text"]%></p>
@@ -21,3 +22,8 @@
 </ul>
 
 <p><%= @page4["body"][5]["model"]["text"]%></p>
+
+<a href= <%= page5_path %> >
+<img align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Next_Arrow.svg/600px-Next_Arrow.svg.png" width="30" height="30">
+</a>
+</div>
