@@ -1,1 +1,17 @@
-<h1> Page 1 </h1>
+
+<h4 align="right">Article | 1 | </h4>
+
+<h1><%= @page1["title"] %></h1>
+
+<h3><%= @page1["body"][0]["model"]["text"]%></h3>
+
+<p><%= @page1["body"][1]["model"]["text"]%></p>
+<img src= <%= @page1["body"][2]["model"]["url"] %> alt= <%= @page1["body"][2]["model"]["altText"] %> height="420" width="640">
+<p><%= @page1["body"][3]["model"]["text"]%></p>
+<p><%= @page1["body"][4]["model"]["text"]%></p>
+
+
+<ul style="list-style-type:disc;">
+  <li><%= @page1["body"][5]["model"]["items"][0] %></li>
+  <li><%= @page1["body"][5]["model"]["items"][1] %></li>
+</ul>

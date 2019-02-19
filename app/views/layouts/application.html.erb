@@ -4,11 +4,16 @@
   <div class="container">
 
     <div class="nav navbar-nav navbar-left">
-      <li><%= link_to "News" , root_path, class: "navbrand_brand" %></li>
+      <a href= <%= root_path %> >
+    <img src="http://blog.thepilatessuite.co.uk/wp-content/uploads/2016/08/ls_news.jpg" width="110" height="70">
+      </a>
     </div>
 
     <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Add Article", new_page_path %></li>
+      <p></p>
+      <a href= <%= new_page_path %> >
+      <img src="https://image.flaticon.com/icons/svg/60/60740.svg" width="40" height="40">
+      </a>
     </ul>
 
   </div>
@@ -16,7 +21,7 @@
 
 <html>
   <head>
-    <title>PageRank</title>
+    <title>OJNews</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -24,7 +29,9 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
-  </body>
-</html>
+  <%= yield %>
+  <div class="col-md-10 col-md-offset-9">
+  <font color="black"><%= render 'shared/footer' %></font>
+  </div>
+
+ <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
