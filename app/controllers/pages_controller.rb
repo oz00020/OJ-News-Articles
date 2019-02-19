@@ -1,9 +1,9 @@
 class PagesController < ApplicationController
-before_action :find_page, only: [:show, :edit, :update, :destroy, :page1]
+before_action :find_page, only: [:show, :edit, :update, :destroy, :page1, :page2, :pag3, :page4, :page5]
+before_action :page1, :page2, :page3, :page4, :page5, only: [:show]
 
   def index
     @pages = Page.all.order("title ASC")
-    file = File.read('app/assets/javascripts/article1.json')
   end
 
   def page1
@@ -36,22 +36,16 @@ before_action :find_page, only: [:show, :edit, :update, :destroy, :page1]
 
 
   def show
-    file = File.read('app/assets/javascripts/article1.json')
-    @page1 = JSON.parse(file)
-    file = File.read('app/assets/javascripts/article2.json')
-    @page2 = JSON.parse(file)
-    file = File.read('app/assets/javascripts/article3.json')
-    @page3 = JSON.parse(file)
-    case @page.id
-    when 9
+    case @page.pageid
+    when 1
       render 'page1'
-    when 10
+    when 2
       render 'page2'
-    when 3
+    when 2
       render 'page3'
-    when 4
+    when 3
       render 'page4'
-    when 5
+    when 4
       render 'page5'
     else
     end
@@ -92,7 +86,7 @@ before_action :find_page, only: [:show, :edit, :update, :destroy, :page1]
   private
 
   def page_params
-    params.require(:page).permit(:title, :body)
+    params.require(:page).permit(:title, :pageid)
   end
 
   def find_page
