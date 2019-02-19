@@ -36,6 +36,7 @@ before_action :find_page, only: [:show, :edit, :update, :destroy, :page1]
 
 
   def show
+    if @page.title
   end
 
   def new
