@@ -1,7 +1,7 @@
 
 class PagesController < ApplicationController
 
-before_action :find_page, only: [:show, :edit, :update, :destroy, :page1, :page2, :pag3, :page4, :page5]
+before_action :find_page, only: [:show, :edit, :update, :destroy, :page1, :page2, :pag3, :page4, :page5, :rankingpage, :index]
 before_action :page1, :page2, :page3, :page4, :page5, only: [:show]
 before_action :show, only: [:page1, :page2, :page3, :page4, :page5]
 
@@ -87,8 +87,7 @@ before_action :show, only: [:page1, :page2, :page3, :page4, :page5]
     @page.destroy
     redirect_to root_path
   end
-
-  end
+end
 
   private
 
@@ -98,4 +97,9 @@ before_action :show, only: [:page1, :page2, :page3, :page4, :page5]
 
   def find_page
     @page = Page.find_by(id:params[:id])
+    @p1 = Page.first
+    @p2 = Page.second
+    @p3 = Page.third
+    @p4 = Page.fourth
+    @p5 = Page.fifth
   end

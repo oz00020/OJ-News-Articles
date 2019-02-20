@@ -2,13 +2,37 @@
 
 <h1><%= @page.title %></h1>
 
+<h4> Ranks previously given: </h4>
+<%= render @page.ranks %>
+
 <% if user_signed_in? %>
 <% if @page.user_id == current_user.id %>
 
 <ul><li><%= link_to "Edit", edit_page_path(@page) %></li></ul>
 <ul><li><%= link_to "Delete", page_path(@page), method: :delete, data: {confirm: "Are you sure ?" } %></li></ul>
+<h1></h1>
 
 <% end %>
 <% end %>
 
 </div>
+
+<script>
+  $('.rank-rating').raty({
+    readOnly: true,
+    score: function () {
+      return $(this).attr('data-score');
+    },
+    path: '/assets/'
+  });
+</script>
+
+<script>
+  $('.average-rank-rating').raty({
+    readOnly: true,
+    path: '/assets/',
+    score: function () {
+      return $(this).attr('data-score');
+    }
+  });
+</script>

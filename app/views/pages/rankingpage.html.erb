@@ -1,9 +1,36 @@
 
 <div class="tile">
 
-<h1> Ranking Page </h1>
+<h1> Ranking Articles </h1>
+<br>
+
+<ul><li><h4><%= link_to "Rank Article 1", new_page_rank_path(@p1) %></h4><%= render @p1.ranks %></li></ul>
+<ul><li><h4><%= link_to "Rank Article 2", new_page_rank_path(@p2) %></h4><%= render @p2.ranks %></li></ul>
+<ul><li><h4><%= link_to "Rank Article 3", new_page_rank_path(@p3) %></h4><%= render @p3.ranks %></li></ul>
+<ul><li><h4><%= link_to "Rank Article 4", new_page_rank_path(@p4) %></h4><%= render @p4.ranks %></li></ul>
+<ul><li><h4><%= link_to "Rank Article 5", new_page_rank_path(@p5) %></h4><%= render @p5.ranks %></li></ul>
 
 <a href= <%= root_path %> >
 <img align="right" src="http://brandmark.io/intro/home.png" width="30" height="30">
 </a>
 </div>
+
+<script>
+  $('.rank-rating').raty({
+    readOnly: true,
+    score: function () {
+      return $(this).attr('data-score');
+    },
+    path: '/assets/'
+  });
+</script>
+
+<script>
+  $('.average-rank-rating').raty({
+    readOnly: true,
+    path: '/assets/',
+    score: function () {
+      return $(this).attr('data-score');
+    }
+  });
+</script>

@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   get 'rankingpage', to: 'pages#rankingpage'
 
   # declares all index, show , new, edit and destroy actions
-  resources:pages
+  resources:pages do
+    resources:ranks
+  end
   root 'pages#index'
   root to: "home#index"
 end

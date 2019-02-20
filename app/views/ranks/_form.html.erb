@@ -1,0 +1,5 @@
+
+  <%= simple_form_for([@page, @page.ranks.build]) do |f| %>
+    <%= f.input :rating, label: "Rank Rating" %>
+  <%= f.button :submit %>
+<% end %>
