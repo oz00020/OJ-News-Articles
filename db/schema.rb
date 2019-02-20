@@ -10,18 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_20_144530) do
+ActiveRecord::Schema.define(version: 2019_02_20_160503) do
 
   create_table "pages", force: :cascade do |t|
     t.string "title"
-    t.text "body"
     t.integer "pageid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "page_image_file_name"
     t.string "page_image_content_type"
-    t.bigint "page_image_file_size"
+    t.integer "page_image_file_size"
     t.datetime "page_image_updated_at"
+  end
+
+  create_table "rails", force: :cascade do |t|
+    t.string "generate"
+    t.string "model"
+    t.string "Rank"
+    t.integer "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
