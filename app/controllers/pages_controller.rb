@@ -59,11 +59,11 @@ before_action :show, only: [:page1, :page2, :page3, :page4, :page5]
   end
 
   def new
-    @page = Page.new
+    @page = current_user.pages.build
   end
 
   def create
-    @page = Page.new(page_params)
+    @page = current_user.pages.build(page_params)
 
     if @page.save
       redirect_to root_path

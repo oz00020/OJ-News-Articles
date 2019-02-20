@@ -19,6 +19,7 @@
 @mixin mytile {
 	box-sizing: border-box;
 	background-color: #fff;
+  border-width: thick;
 	border-radius: 10px;
 	box-shadow: 1px 1px 2px 4px #ccc;
 	padding: 2em 1.75em;
