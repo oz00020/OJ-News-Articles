@@ -2,29 +2,11 @@
 <div class="tile">
 <center>
 
-<a href= <%= page1_path %> >
-<img src="https://purepng.com/public/uploads/large/215044676536220izilkyul7f2cgljfyhdqkw1dzroyjm3aauxvpwq8tg6tnz6a4gippjic6hpw5wg7zptowwvlsjtfbnt9godnc7v6u0bgwy50.png" width="200" height="200">
-</a>
-
-<a href= <%= page2_path %> >
-<img src="http://www.clker.com/cliparts/R/q/f/z/C/C/2-in-circle-md.png" width="200" height="200">
-</a>
-
-<a href= <%= page3_path %> >
-<img src="http://www.clker.com/cliparts/9/3/h/S/g/Y/number-3-in-circle-hi.png" width="200" height="200">
-</a>
-
-<a href= <%= page4_path %> >
-<img src="http://www.clker.com/cliparts/s/m/E/3/k/l/4-in-circle-md.png" width="200" height="200">
-</a>
-
-<a href= <%= page5_path %> >
-<img src="http://www.clker.com/cliparts/6/p/9/e/p/o/5-in-circle-md.png" width="200" height="200">
-</a>
+<% @pages.each do |page| %>
+  <a href="/pages/<%= page.id %>">
+    <%= image_tag page.page_image.url(:page_index) %>
+  </a>
+<% end %>
 
 </center>
 </div>
-
-<% @pages.each do |page| %>
-<ul><li><h2><%= link_to page.title, page_path(page) %></h2></li></ul>
-<% end %>

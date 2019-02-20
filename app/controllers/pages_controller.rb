@@ -93,7 +93,7 @@ before_action :show, only: [:page1, :page2, :page3, :page4, :page5]
   private
 
   def page_params
-    params.require(:page).permit(:title, :pageid)
+    params.require(:page).permit(:title, :pageid, :page_image)
   end
 
   def find_page
