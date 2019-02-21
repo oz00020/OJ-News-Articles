@@ -10,19 +10,21 @@ before_action :find_rank, only: [:destroy]
   def create
     @rank = Rank.new(rank_params)
     @rank.page_id = @page.id
-    @rank.user_id = current_user.id
+
+    if user_signed_in?
+      @rank.user_id = current_user.id
+    end
 
     if @rank.save
-      redirect_to page_path(@page)
+      redirect_to rankingpage_path
     else
-      render 'new'
+      redirect_to new_user_session_path
     end
   end
     def destroy
       @rank.destroy
-      redirect_to page_path(@page)
+      redirect_to rankingpage_path
     end
-  end
 
   private
 
@@ -37,3 +39,4 @@ before_action :find_rank, only: [:destroy]
   def find_rank
     @rank = Rank.find(params[:id])
   end
+end

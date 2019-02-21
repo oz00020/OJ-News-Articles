@@ -1,9 +1,7 @@
 <div class="tile">
 
 <h1><%= @page.title %></h1>
-
-<h4> Ranks previously given: </h4>
-<%= render @page.ranks %>
+<h4>Rank: <%= @page.rank_rating %></h4>
 
 <% if user_signed_in? %>
 <% if @page.user_id == current_user.id %>
@@ -15,6 +13,12 @@
 <% end %>
 <% end %>
 
+<br>
+<h4> Ranks previously given: </h4>
+<%= render @page.ranks %>
+<br>
+<h4> Average rank: </h4>
+<div class="average-rank-rating" data-score=<%= @average_rank %>></div>
 </div>
 
 <script>

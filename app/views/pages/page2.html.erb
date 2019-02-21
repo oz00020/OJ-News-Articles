@@ -1,7 +1,7 @@
 
 <div class="tile">
 
-<h4 align="right">Article  2  </h4>
+<h4 align="right"> Rank: <%= @p2.ranks.average(:rating).round(0) %></h4>
 
 <h1><strong><%= @page2["title"] %></strong></h1>
 
@@ -20,9 +20,17 @@
 <h1> </h1>
 <p><%= @page2["body"][7]["model"]["text"]%></p>
 
+<br>
+
 <a href= <%= page_path(@p3) %> >
 <img align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Next_Arrow.svg/600px-Next_Arrow.svg.png" width="30" height="30">
 </a>
+
+<a href= <%= page_path(@p1) %> >
+<img align="left" src="https://image.freepik.com/free-icon/back-navigational-arrow-button-pointing-to-left_318-48409.jpg" width="30" height="30">
+</a>
+
 </div>
 
+<br>
 <%= render 'show' %>

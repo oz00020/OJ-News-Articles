@@ -1,6 +1,6 @@
 
 <div class="tile">
-<h4 align="right">Article 1 </h4>
+<h4 align="right"> Rank: <%= @p1.ranks.average(:rating).round(0) %></h4>
 
 <h1><strong><%= @page1["title"] %></strong></h1>
 
@@ -19,10 +19,17 @@
   <li><%= @page1["body"][5]["model"]["items"][1] %></li>
 </ul>
 
+<br>
+
 <a href= <%= page_path(@p2) %> >
 <img align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Next_Arrow.svg/600px-Next_Arrow.svg.png" width="30" height="30">
 </a>
 
+<a href= <%= root_path %> >
+<img align="left" src="http://brandmark.io/intro/home.png" width="30" height="30">
+</a>
+
 </div>
 
+<br>
 <%= render 'show' %>

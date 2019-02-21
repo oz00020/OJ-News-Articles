@@ -1,5 +1,14 @@
 
   <%= simple_form_for([@page, @page.ranks.build]) do |f| %>
-    <%= f.input :rating, label: "Rank Rating" %>
+    <label>  <%= @page.title %> Rank </label>
+   <div id= "rank-form"> </div>
+   <br>
   <%= f.button :submit %>
 <% end %>
+
+<script>
+  $('#rank-form').raty({
+    path: '/assets/',
+    scoreName: 'rank[rating]'
+  });
+</script>

@@ -4,9 +4,21 @@ class PagesController < ApplicationController
 before_action :find_page, only: [:show, :edit, :update, :destroy, :page1, :page2, :pag3, :page4, :page5, :rankingpage, :index]
 before_action :page1, :page2, :page3, :page4, :page5, only: [:show]
 before_action :show, only: [:page1, :page2, :page3, :page4, :page5]
+before_action :average, only: [:show, :page1, :page2, :pag3, :page4, :page5]
+before_action :average1, only: [:index, :rankingpage]
 
   def index
-    @pages = Page.all.order("title ASC")
+    @p1.update(params.permit(:rank_rating))
+    @p1.save
+    @p2.update(params.permit(:rank_rating))
+    @p2.save
+    @p3.update(params.permit(:rank_rating))
+    @p3.save
+    @p4.update(params.permit(:rank_rating))
+    @p4.save
+    @p5.update(params.permit(:rank_rating))
+    @p5.save
+    @pages = Page.all.order("rank_rating ASC")
   end
 
   def page1
@@ -87,12 +99,25 @@ before_action :show, only: [:page1, :page2, :page3, :page4, :page5]
     @page.destroy
     redirect_to root_path
   end
-end
-
-  private
 
   def page_params
-    params.require(:page).permit(:title, :pageid, :page_image)
+    params.require(:page).permit(:title, :pageid, :rank_rating, :page_image)
+  end
+
+  def average
+    if @page.ranks.blank?
+      @average_rank = 0
+    else
+      @average_rank = @page.ranks.average(:rating).round(2)
+    end
+  end
+
+  def average1
+    @p1.rank_rating = @p1.ranks.average(:rating).round(2)
+    @p2.rank_rating = @p2.ranks.average(:rating).round(2)
+    @p3.rank_rating = @p3.ranks.average(:rating).round(2)
+    @p4.rank_rating = @p4.ranks.average(:rating).round(2)
+    @p5.rank_rating = @p5.ranks.average(:rating).round(2)
   end
 
   def find_page
@@ -103,3 +128,4 @@ end
     @p4 = Page.fourth
     @p5 = Page.fifth
   end
+end

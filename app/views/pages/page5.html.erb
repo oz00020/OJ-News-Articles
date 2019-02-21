@@ -1,6 +1,6 @@
 
 <div class="tile">
-<h4 align="right">Article  5  </h4>
+<h4 align="right"> Rank: <%= @p5.ranks.average(:rating).round(0) %></h4>
 
 <h1><strong><%= @page5["title"] %></strong></h1>
 
@@ -14,9 +14,17 @@
 
 <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
+<br>
+
 <a href= <%= rankingpage_path %> >
 <img align="right" src="http://freevector.co/wp-content/uploads/2011/01/70199-work-done.png" width="30" height="30">
 </a>
+
+<a href= <%= page_path(@p4) %> >
+<img align="left" src="https://image.freepik.com/free-icon/back-navigational-arrow-button-pointing-to-left_318-48409.jpg" width="30" height="30">
+</a>
+
 </div>
 
+<br>
 <%= render 'show' %>
