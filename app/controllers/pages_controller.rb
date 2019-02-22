@@ -5,9 +5,14 @@ before_action :find_page, only: [:show, :edit, :update, :destroy, :page1, :page2
 before_action :page1, :page2, :page3, :page4, :page5, only: [:show]
 before_action :show, only: [:page1, :page2, :page3, :page4, :page5]
 before_action :average, only: [:show, :page1, :page2, :page3, :page4, :page5]
-before_action :average1, only: [:index, :rankingpage]
+before_action :average_eachpage, only: [:index, :rankingpage]
+before_action :update_save, only: [:index]
 
   def index
+    @pages = Page.all.order("rank_rating ASC")
+  end
+
+  def update_save
     @p1.update(params.permit(:rank_rating))
     @p1.save
     @p2.update(params.permit(:rank_rating))
@@ -18,7 +23,6 @@ before_action :average1, only: [:index, :rankingpage]
     @p4.save
     @p5.update(params.permit(:rank_rating))
     @p5.save
-    @pages = Page.all.order("rank_rating ASC")
   end
 
   def page1
@@ -112,7 +116,7 @@ before_action :average1, only: [:index, :rankingpage]
     end
   end
 
-  def average1
+  def average_eachpage
     if !@p1.ranks.blank?
       @p1.rank_rating = @p1.ranks.average(:rating).round(1)
     end
@@ -147,7 +151,7 @@ before_action :average1, only: [:index, :rankingpage]
    def not_found
      render :file => "#{Rails.root}/public/404.html",  layout: false, status: :not_found
    end
-   
+
   rescue_from ActiveRecord::RecordNotFound, NoMethodError do
     not_found
   end
