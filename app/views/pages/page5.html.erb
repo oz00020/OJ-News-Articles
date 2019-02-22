@@ -1,28 +1,31 @@
-
 <div class="tile">
-<h4 align="right"> Rank: <%= @p5.ranks.average(:rating).round(0) %></h4>
+  <h4 align="right">
+    Rank:
+    <%= @p5.ranks.average(:rating).round(0) %></h4>
 
-<h1><strong><%= @page5["title"] %></strong></h1>
+  <h1>
+    <strong><%= @page5["title"] %></strong>
+  </h1>
 
-<h3><%= @page5["body"][0]["model"]["text"]%></h3>
-<h1> </h1>
-<img src= <%= @page5["body"][1]["model"]["url"] %> alt= <%= @page5["body"][1]["model"]["altText"] %> height="420" width="640">
-<h1> </h1>
-<img src= <%= @page5["body"][2]["model"]["url"] %> alt= <%= @page5["body"][2]["model"]["altText"] %> height="420" width="640">
-<h1> </h1>
-<p><%= @page5["body"][3]["model"]["text"]%></p>
+  <h3><%= @page5["body"][0]["model"]["text"]%></h3>
+  <h1></h1>
+  <img src=<%= @page5["body"][1]["model"]["url"] %> alt=<%= @page5["body"][1]["model"]["altText"] %> height="420" width="640">
+  <h1></h1>
+  <img src=<%= @page5["body"][2]["model"]["url"] %> alt=<%= @page5["body"][2]["model"]["altText"] %> height="420" width="640">
+  <h1></h1>
+  <p><%= @page5["body"][3]["model"]["text"]%></p>
 
-<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+  <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
-<br>
+  <br>
 
-<a href= <%= rankingpage_path %> >
-<img align="right" src="http://freevector.co/wp-content/uploads/2011/01/70199-work-done.png" width="30" height="30">
-</a>
+  <a href=<%= rankingpage_path %>>
+    <img align="right" src="http://freevector.co/wp-content/uploads/2011/01/70199-work-done.png" width="30" height="30">
+  </a>
 
-<a href= <%= page_path(@p4) %> >
-<img align="left" src="https://image.freepik.com/free-icon/back-navigational-arrow-button-pointing-to-left_318-48409.jpg" width="30" height="30">
-</a>
+  <a href=<%= page_path(@p4) %>>
+    <img align="left" src="https://image.freepik.com/free-icon/back-navigational-arrow-button-pointing-to-left_318-48409.jpg" width="30" height="30">
+  </a>
 
 </div>
 

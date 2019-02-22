@@ -1,7 +1,6 @@
 {
   "title": "Maecenas venenatis lorem ut erat dictum, sed varius est porta",
-  "body": [
-    {
+  "body": [{
       "type": "heading",
       "model": {
         "text": "Maecenas venenatis lorem ut erat dictum, sed varius est porta"

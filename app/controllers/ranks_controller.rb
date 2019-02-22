@@ -1,7 +1,6 @@
-
 class RanksController < ApplicationController
-before_action :find_page
-before_action :find_rank, only: [:destroy]
+  before_action :find_page
+  before_action :find_rank, only: [:destroy]
 
   def new
     @rank = Rank.new
@@ -11,9 +10,7 @@ before_action :find_rank, only: [:destroy]
     @rank = Rank.new(rank_params)
     @rank.page_id = @page.id
 
-    if user_signed_in?
-      @rank.user_id = current_user.id
-    end
+    @rank.user_id = current_user.id if user_signed_in?
 
     if @rank.save
       redirect_to rankingpage_path
@@ -21,10 +18,11 @@ before_action :find_rank, only: [:destroy]
       redirect_to new_user_session_path
     end
   end
-    def destroy
-      @rank.destroy
-      redirect_to rankingpage_path
-    end
+
+  def destroy
+    @rank.destroy
+    redirect_to rankingpage_path
+  end
 
   private
 

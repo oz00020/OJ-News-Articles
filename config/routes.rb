@@ -1,7 +1,4 @@
-
-
 Rails.application.routes.draw do
-
   devise_for :users
   get 'page1', to: 'pages#page1'
   get 'page2', to: 'pages#page2'
@@ -11,9 +8,12 @@ Rails.application.routes.draw do
   get 'rankingpage', to: 'pages#rankingpage'
 
   # declares all index, show , new, edit and destroy actions
-  resources:pages do
-    resources:ranks
+  resources :pages do
+    resources :ranks
   end
   root 'pages#index'
-  root to: "home#index"
+  root to: 'home#index'
+
+  # invalid path redirect
+  get '*path', to: 'pages#not_found'
 end

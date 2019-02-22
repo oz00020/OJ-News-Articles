@@ -1,13 +1,12 @@
+<h5>
+  <div class="rank-rating" data-score="<%= rank.rating %>"></div>
 
-<h5> <div class="rank-rating" data-score="<%= rank.rating %>">
-</div>
+  <% if user_signed_in? %>
+    <% if rank.user_id == current_user.id %>
+      <p></p>
+      <%= link_to "Delete", page_rank_path(rank.page, rank), method: :delete, data: { confirm: "Are you sure?" } %>
 
-<% if user_signed_in? %>
-<% if rank.user_id == current_user.id %>
-<p></p>
-<%= link_to "Delete", page_rank_path(rank.page, rank), method: :delete, data: { confirm: "Are you sure?" } %>
-
-<% end %>
-<% end %>
+    <% end %>
+  <% end %>
 
 </h5>

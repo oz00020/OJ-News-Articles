@@ -1,12 +1,11 @@
-
 <div class="tile">
-<center>
+  <center>
 
-<% @pages.each do |page| %>
-  <a href="/pages/<%= page.id %>">
-    <%= image_tag page.page_image.url(:page_index) %>
-  </a>
-<% end %>
+    <% @pages.each do |page| %>
+      <a href="/pages/<%= page.id %>">
+        <%= image_tag page.page_image.url(:page_index) %>
+      </a>
+    <% end %>
 
-</center>
+  </center>
 </div>

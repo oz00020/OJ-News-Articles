@@ -1,7 +1,6 @@
 {
   "title": "Vestibulum posuere orci ullamcorper nisi porta, sit amet tempus nibh porta",
-  "body": [
-    {
+  "body": [{
       "type": "heading",
       "model": {
         "text": "Donec est neque, vulputate vitae magna non, aliquam semper lectus"

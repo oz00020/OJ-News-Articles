@@ -1,7 +1,6 @@
 {
   "title": "Praesent bibendum nec velit a fringilla. Nulla facilisi",
-  "body": [
-    {
+  "body": [{
       "type": "heading",
       "model": {
         "text": "Nam eu varius magna, vel molestie diam"

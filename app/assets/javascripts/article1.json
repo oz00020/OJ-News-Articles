@@ -1,7 +1,6 @@
 {
   "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-  "body": [
-    {
+  "body": [{
       "type": "heading",
       "model": {
         "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit"

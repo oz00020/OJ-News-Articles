@@ -1,9 +1,9 @@
-
-  <%= simple_form_for @page do |f| %>
-    <%= f.input :pageid, label: "Article No" %>
-    <%= f.input :title, label: "Title" %>
-    <%= f.input :rank_rating, label: "Rank" %>
-    <label> Image </label><%= f.file_field :page_image, label: "Image" %>
-    <br>
-  <%= f.button :submit %>
+<%= simple_form_for @page do |f| %>
+<%= f.input :pageid, label: "Article No" %>
+<%= f.input :title, label: "Title" %>
+<label>
+  Image
+</label><%= f.file_field :page_image, label: "Image" %>
+<br>
+<%= f.button :submit %>
 <% end %>

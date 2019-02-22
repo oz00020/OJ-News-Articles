@@ -1,10 +1,10 @@
 
 class PagesController < ApplicationController
 
-before_action :find_page, only: [:show, :edit, :update, :destroy, :page1, :page2, :pag3, :page4, :page5, :rankingpage, :index]
+before_action :find_page, only: [:show, :edit, :update, :destroy, :page1, :page2, :page3, :page4, :page5, :rankingpage, :index]
 before_action :page1, :page2, :page3, :page4, :page5, only: [:show]
 before_action :show, only: [:page1, :page2, :page3, :page4, :page5]
-before_action :average, only: [:show, :page1, :page2, :pag3, :page4, :page5]
+before_action :average, only: [:show, :page1, :page2, :page3, :page4, :page5]
 before_action :average1, only: [:index, :rankingpage]
 
   def index
@@ -113,11 +113,25 @@ before_action :average1, only: [:index, :rankingpage]
   end
 
   def average1
-    @p1.rank_rating = @p1.ranks.average(:rating).round(2)
-    @p2.rank_rating = @p2.ranks.average(:rating).round(2)
-    @p3.rank_rating = @p3.ranks.average(:rating).round(2)
-    @p4.rank_rating = @p4.ranks.average(:rating).round(2)
-    @p5.rank_rating = @p5.ranks.average(:rating).round(2)
+    if !@p1.ranks.blank?
+      @p1.rank_rating = @p1.ranks.average(:rating).round(1)
+    end
+
+    if !@p2.ranks.blank?
+      @p2.rank_rating = @p2.ranks.average(:rating).round(1)
+    end
+
+    if !@p3.ranks.blank?
+      @p3.rank_rating = @p3.ranks.average(:rating).round(1)
+    end
+
+    if !@p4.ranks.blank?
+      @p4.rank_rating = @p4.ranks.average(:rating).round(1)
+    end
+
+    if !@p5.ranks.blank?
+      @p5.rank_rating = @p5.ranks.average(:rating).round(1)
+    end
   end
 
   def find_page
@@ -127,5 +141,14 @@ before_action :average1, only: [:index, :rankingpage]
     @p3 = Page.third
     @p4 = Page.fourth
     @p5 = Page.fifth
+  end
+
+  # action to render 404 for invalid address
+   def not_found
+     render :file => "#{Rails.root}/public/404.html",  layout: false, status: :not_found
+   end
+   
+  rescue_from ActiveRecord::RecordNotFound, NoMethodError do
+    not_found
   end
 end

@@ -1,7 +1,6 @@
 {
   "title": "Nulla nibh erat, pharetra at ultricies nec, tincidunt luctus arcu",
-  "body": [
-    {
+  "body": [{
       "type": "heading",
       "model": {
         "text": "Nulla nibh erat, pharetra at ultricies nec, tincidunt luctus arcu"
