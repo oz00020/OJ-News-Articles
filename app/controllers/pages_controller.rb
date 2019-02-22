@@ -13,6 +13,7 @@ before_action :update_save, only: [:index]
   end
 
   def update_save
+    if !@page.blank?
     @p1.update(params.permit(:rank_rating))
     @p1.save
     @p2.update(params.permit(:rank_rating))
@@ -23,6 +24,7 @@ before_action :update_save, only: [:index]
     @p4.save
     @p5.update(params.permit(:rank_rating))
     @p5.save
+  end
   end
 
   def page1
@@ -117,6 +119,8 @@ before_action :update_save, only: [:index]
   end
 
   def average_eachpage
+
+    if !@page.blank?
     if !@p1.ranks.blank?
       @p1.rank_rating = @p1.ranks.average(:rating).round(1)
     end
@@ -137,6 +141,7 @@ before_action :update_save, only: [:index]
       @p5.rank_rating = @p5.ranks.average(:rating).round(1)
     end
   end
+  end
 
   def find_page
     @page = Page.find_by(id:params[:id])
@@ -146,13 +151,7 @@ before_action :update_save, only: [:index]
     @p4 = Page.fourth
     @p5 = Page.fifth
   end
-
   # action to render 404 for invalid address
-   def not_found
-     render :file => "#{Rails.root}/public/404.html",  layout: false, status: :not_found
-   end
 
-  rescue_from ActiveRecord::RecordNotFound, NoMethodError do
-    not_found
-  end
+
 end

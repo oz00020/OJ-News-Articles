@@ -14,6 +14,4 @@ Rails.application.routes.draw do
   root 'pages#index'
   root to: 'home#index'
 
-  # invalid path redirect
-  get '*path', to: 'pages#not_found'
 end
