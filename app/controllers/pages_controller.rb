@@ -73,6 +73,7 @@ before_action :update_save, only: [:index]
     when 5
       render 'page5'
     else
+      render 'otherpages'
     end
   end
 
