@@ -8,6 +8,8 @@
         <% if !@page.ranks.blank? %>
     <%= @page.ranks.average(:rating).round(0) %></h4>
 <% end %>
+<br>
+<br>
   <% if user_signed_in? %>
     <% if @page.user_id == current_user.id %>
 
