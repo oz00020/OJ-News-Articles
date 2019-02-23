@@ -134,23 +134,23 @@ before_action :update_save, only: [:index]
 
     if !@page.blank?
     if !@p1.ranks.blank?
-      @p1.rank_rating = @p1.ranks.average(:rating).round(2)
+      @p1.rank_rating = @p1.ranks.average(:rating).round(0)
     end
 
     if !@p2.ranks.blank?
-      @p2.rank_rating = @p2.ranks.average(:rating).round(2)
+      @p2.rank_rating = @p2.ranks.average(:rating).round(0)
     end
 
     if !@p3.ranks.blank?
-      @p3.rank_rating = @p3.ranks.average(:rating).round(2)
+      @p3.rank_rating = @p3.ranks.average(:rating).round(0)
     end
 
     if !@p4.ranks.blank?
-      @p4.rank_rating = @p4.ranks.average(:rating).round(2)
+      @p4.rank_rating = @p4.ranks.average(:rating).round(0)
     end
 
     if !@p5.ranks.blank?
-      @p5.rank_rating = @p5.ranks.average(:rating).round(2)
+      @p5.rank_rating = @p5.ranks.average(:rating).round(0)
     end
   else
   end
