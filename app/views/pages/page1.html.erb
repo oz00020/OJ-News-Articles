@@ -23,9 +23,11 @@
 
   <br>
 
+<% if !@p2.blank? %>
   <a href=<%= page_path(@p2) %>>
     <img align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Next_Arrow.svg/600px-Next_Arrow.svg.png" width="30" height="30">
   </a>
+<% end %>
 
   <a href=<%= root_path %>>
     <img align="left" src="http://brandmark.io/intro/home.png" width="30" height="30">

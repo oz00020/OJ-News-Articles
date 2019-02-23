@@ -25,13 +25,17 @@
 
   <br>
 
+<% if !@p3.blank? %>
   <a href=<%= page_path(@p3) %>>
     <img align="right" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Next_Arrow.svg/600px-Next_Arrow.svg.png" width="30" height="30">
   </a>
+<% end %>
 
+<% if !@p1.blank? %>
   <a href=<%= page_path(@p1) %>>
     <img align="left" src="https://image.freepik.com/free-icon/back-navigational-arrow-button-pointing-to-left_318-48409.jpg" width="30" height="30">
   </a>
+<% end %>
 
 </div>
 
