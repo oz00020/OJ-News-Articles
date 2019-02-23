@@ -21,4 +21,9 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+
+IMPORTANT INSTRUCTIONS MUST READ :
+1. Amend the ruby version to the one you have installed
+2. Run bundle install
+3. Once completed, run rake db:migrate to update database
+4. Lastly, run rake db:seed to populate the database with data
