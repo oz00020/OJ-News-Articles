@@ -7,11 +7,11 @@ class PageTest < ActiveSupport::TestCase
     end
 
   # test that a page pageid won't be save without a page pageid
-    test 'should save empty page pageid' do
+    test 'should not save empty page pageid' do
       newpage = Page.new
       newpage.title = 'A1'
       newpage.save
-      assert newpage.valid?
+      refute newpage.valid?
     end
 
   # test that the page pageid will be successfully saved after inputting the correct data required.

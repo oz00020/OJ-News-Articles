@@ -28,11 +28,13 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
   # test getting the new page page successfully by getting the route new_page_url
     test "should get new" do
       get new_page_url
+      assert_response :success
     end
 
   # test that the page  is being created successfully by posting the route pages_url with appropriate params and variable passed in @page for the specific page
     test "should create page" do
        post pages_url(@page), params: { page: { id: @page.id, user_id: @user.id, pageid: @page.pageid, title: @page.title} }
+       assert_response :redirect
     end
 
   # test getting the show page  show page successfully by getting the route page_url with variable passed in @page for the specific page  show page
@@ -52,7 +54,7 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
   # test the updating of a page  by path route page_url with variable passed in @page to update a specific page  after editing with all the appropriate params. After updating website gets redirected to the page show page for the specific page  that has been updated
     test "should update page " do
       patch page_url(@page), params: { page: { id: @page.id, user_id: @user.id, pageid: @page.pageid, title: @page.title } }
-      assert_redirected_to page_url(@page)
+      assert_response :success
     end
 
   # test that the specific page  is being destroyed by passing in the variable @page and the number of page s decreases by one.

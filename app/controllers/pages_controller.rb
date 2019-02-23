@@ -127,7 +127,7 @@ before_action :update_save, only: [:index]
     @page = current_user.pages.build(page_params)
 
     if @page.save
-      redirect_to root_path
+      redirect_to page_path(@page)
     else
       render 'new'
     end
