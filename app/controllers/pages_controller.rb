@@ -24,6 +24,7 @@ before_action :update_save, only: [:index]
     @p4.save
     @p5.update(params.permit(:rank_rating))
     @p5.save
+  else
   end
   end
 
@@ -61,6 +62,7 @@ before_action :update_save, only: [:index]
 
 
   def show
+    if !@page.blank?
     case @page.pageid
     when 1
       render 'page1'
@@ -75,6 +77,8 @@ before_action :update_save, only: [:index]
     else
       render 'otherpages'
     end
+  else
+  end
   end
 
   def new
@@ -112,11 +116,13 @@ before_action :update_save, only: [:index]
   end
 
   def average
+    if !@page.blank?
     if @page.ranks.blank?
       @average_rank = 0
     else
       @average_rank = @page.ranks.average(:rating).round(2)
     end
+  end
   end
 
   def average_eachpage
@@ -141,16 +147,28 @@ before_action :update_save, only: [:index]
     if !@p5.ranks.blank?
       @p5.rank_rating = @p5.ranks.average(:rating).round(1)
     end
+  else
   end
   end
 
   def find_page
     @page = Page.find_by(id:params[:id])
-    @p1 = Page.first
-    @p2 = Page.second
-    @p3 = Page.third
-    @p4 = Page.fourth
-    @p5 = Page.fifth
+
+    if !@page.blank?
+    case @page.pageid
+    when 1
+      @p1 = @page
+    when 2
+      @p2 = @page
+    when 3
+      @p3 = @page
+    when 4
+      @p4 = @page
+    when 5
+      @p5 = @page
+    else
+    end
+  end
   end
   # action to render 404 for invalid address
 

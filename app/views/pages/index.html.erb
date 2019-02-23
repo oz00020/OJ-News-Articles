@@ -2,6 +2,7 @@
   <center>
 <p> Log in and add articles with pageid 1,2,3,4,5  to display the articles </p>
     <% @pages.each do |page| %>
+    <% @page.title %>
     <div class="tile">
       <a href="/pages/<%= page.id %>">
         <%= image_tag page.page_image.url(:page_index) %>
