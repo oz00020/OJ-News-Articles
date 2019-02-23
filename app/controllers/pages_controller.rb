@@ -1,4 +1,5 @@
 
+
 class PagesController < ApplicationController
 
 # before_action is used to run some specific methods before the execution of certain methods
@@ -212,4 +213,15 @@ before_action :update_save, only: [:index]
     @p4 = Page.fourth
     @p5 = Page.fifth
   end
+
+  # Display an error dialogue if the path address is invalid in the address bar
+    def not_found
+      render :file => "#{Rails.root}/public/404.html",  layout: false, status: :not_found
+    end
+
+    # rescue to render 404 if page or os id is changed in the address bar
+    rescue_from ActiveRecord::RecordNotFound, NoMethodError do
+      not_found
+  end
+  
 end
