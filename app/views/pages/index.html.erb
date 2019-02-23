@@ -17,5 +17,7 @@
       <h1></h1>
       <img src=<%= @page1["body"][2]["model"]["url"] %> alt=<%= @page1["body"][2]["model"]["altText"] %> height="220" width="420">
 
+<% if !@p1.blank? %>
 <h1><%= link_to "Read more . . .", page_path(@p1) %></strong></h1>
+<% end %>
 </div>
