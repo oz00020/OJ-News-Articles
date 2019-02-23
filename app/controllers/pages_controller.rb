@@ -152,7 +152,7 @@ before_action :update_save, only: [:index]
     redirect_to root_path
   end
 
-# All the parameters required for a page that are added and permitted
+# All the parameters required for a page that requires, added and permitted
   def page_params
     params.require(:page).permit(:title, :pageid, :rank_rating, :page_image)
   end
@@ -198,7 +198,7 @@ before_action :update_save, only: [:index]
   end
   end
 
-# Find a page by their unique id from the db records and store it under the variable page
+# Find a page by its unique id from the db records and store it under the variable page
 # set the p1 variable equal to the first page
 # set the p2 variable equal to the second page
 # set the p3 variable equal to the third page
