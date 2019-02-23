@@ -9,13 +9,16 @@
         <h4><strong><%= link_to "Rank Article 1", new_page_rank_path(@p1) %></h4></strong>
         <br>
         <h5>Ranks previously given:</h5>
+        <% if !@p1.ranks.blank? %>
         <%= render @p1.ranks %>
+        <% end %>
         <br>
         <h5>
           <strong>Overall Rank:</strong>
         </h5>
+        <% if !@p1.ranks.blank? %>
         <div class="average-rank-rating" data-score=<%= @p1.ranks.average(:rating).round(0) %>></div>
-
+        <% end %>
     </ul>
   </div>
 
@@ -26,13 +29,16 @@
         <h4><strong><%= link_to "Rank Article 2", new_page_rank_path(@p2) %></h4></strong>
         <br>
         <h5>Ranks previously given:</h5>
+        <% if !@p2.ranks.blank? %>
         <%= render @p2.ranks %>
+        <% end %>
         <br>
         <h5>
           <strong>Overall Rank:</strong>
         </h5>
+        <% if !@p2.ranks.blank? %>
         <div class="average-rank-rating" data-score=<%= @p2.ranks.average(:rating).round(0) %>></div>
-
+        <% end %>
     </ul>
   </div>
 
@@ -43,13 +49,16 @@
         <h4><strong><%= link_to "Rank Article 3", new_page_rank_path(@p3) %></h4></strong>
         <br>
         <h5>Ranks previously given:</h5>
+        <% if !@p3.ranks.blank? %>
         <%= render @p3.ranks %>
+        <% end %>
         <br>
         <h5>
           <strong>Overall Rank:</strong>
         </h5>
+        <% if !@p3.ranks.blank? %>
         <div class="average-rank-rating" data-score=<%= @p3.ranks.average(:rating).round(0) %>></div>
-
+        <% end %>
     </ul>
   </div>
 
@@ -60,13 +69,16 @@
         <h4><strong><%= link_to "Rank Article 4", new_page_rank_path(@p4) %></h4></strong>
         <br>
         <h5>Ranks previously given:</h5>
+        <% if !@p4.ranks.blank? %>
         <%= render @p4.ranks %>
+        <% end %>
         <br>
         <h5>
           <strong>Overall Rank:</strong>
         </h5>
+        <% if !@p4.ranks.blank? %>
         <div class="average-rank-rating" data-score=<%= @p4.ranks.average(:rating).round(0) %>></div>
-
+        <% end %>
     </ul>
   </div>
 
@@ -77,13 +89,16 @@
         <h4><strong><%= link_to "Rank Article 5", new_page_rank_path(@p5) %></h4></strong>
         <br>
         <h5>Ranks previously given:</h5>
+        <% if !@p5.ranks.blank? %>
         <%= render @p5.ranks %>
+        <% end %>
         <br>
         <h5>
           <strong>Overall Rank:</strong>
         </h5>
+        <% if !@p5.ranks.blank? %>
         <div class="average-rank-rating" data-score=<%= @p5.ranks.average(:rating).round(0) %>></div>
-
+        <% end %>
     </ul>
 
   </div>

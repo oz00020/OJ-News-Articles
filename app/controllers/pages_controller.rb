@@ -164,4 +164,14 @@ before_action :update_save, only: [:index]
     @p4 = Page.fourth
     @p5 = Page.fifth
   end
+
+  def not_found
+    render :file => "#{Rails.root}/public/404.html",  layout: false, status: :not_found
+  end
+
+  # rescue to render 404 if page or os id is changed in the address bar
+  rescue_from ActiveRecord::RecordNotFound, NoMethodError do
+    not_found
+  end
+
 end
