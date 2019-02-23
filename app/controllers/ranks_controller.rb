@@ -1,11 +1,18 @@
 class RanksController < ApplicationController
+
+# before_action is used to run some specific methods before the execution of certain methods
   before_action :find_page
   before_action :find_rank, only: [:destroy]
 
+  # renders the new view in the rank views
+  # set the rank variable equal to a newly created empty rank under the current user
   def new
     @rank = Rank.new
   end
 
+  # set the rank variable equal to a newly created rank under the current user with all the params ented in the form
+  #
+  # if the rank is created and saved then go to rankingpage view else render ask user to login first
   def create
     @rank = Rank.new(rank_params)
     @rank.page_id = @page.id

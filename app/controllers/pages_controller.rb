@@ -82,7 +82,14 @@ before_action :update_save, only: [:index]
   end
 
 # renders the page show view
-# If there is an existing page 
+# If there is an existing page check the pageid(Article Number) of the page else don't do anything
+# if pageid is 1 then render the page1 view and set the p1 variable equal to the current page
+# if pageid is 2 then render the page2 view and set the p2 variable equal to the current page
+# if pageid is 3 then render the page3 view and set the p3 variable equal to the current page
+# if pageid is 4 then render the page4 view and set the p4 variable equal to the current page
+# if pageid is 5 then render the page5 view and set the p5 variable equal to the current page
+# if pageid is not 1,2,3,4 or 5 then render the otherpages view
+
   def show
     if !@page.blank?
     case @page.pageid
@@ -108,10 +115,14 @@ before_action :update_save, only: [:index]
   end
   end
 
+# renders the new view
+# set the page variable equal to a newly created empty page under the current user
   def new
     @page = current_user.pages.build
   end
 
+# set the page variable equal to a newly created page under the current user with all the params ented in the form
+# if the page is created and saved then go to home page else render the new view again
   def create
     @page = current_user.pages.build(page_params)
 
@@ -122,9 +133,11 @@ before_action :update_save, only: [:index]
     end
   end
 
+# renders the edit view
   def edit
   end
 
+# if page updated then go back to the page updated else render the edit view again
   def update
     if @page.update(page_params)
       redirect_to page_path(@page)
@@ -133,15 +146,19 @@ before_action :update_save, only: [:index]
     end
   end
 
+# if a page is deleted then go back to the home page
   def destroy
     @page.destroy
     redirect_to root_path
   end
 
+# All the parameters required for a page that are added and permitted
   def page_params
     params.require(:page).permit(:title, :pageid, :rank_rating, :page_image)
   end
 
+# check if there is an existing page
+# If the existing page has no ranks set the variable average_rank (average rank of the page) to 0 else set it to the average of all it's ranks up to halve a star
   def average
     if !@page.blank?
     if @page.ranks.blank?
@@ -152,6 +169,9 @@ before_action :update_save, only: [:index]
   end
   end
 
+# Firstly check if there is an existing page
+# Then for each page 1,2,3,4,5 check if they have ranks and if they do then set the page rank rating attribute to the average of all their ranks rounded to a whole number
+# otherwise don't do anything
   def average_eachpage
 
     if !@page.blank?
@@ -178,6 +198,12 @@ before_action :update_save, only: [:index]
   end
   end
 
+# Find a page by their unique id from the db records and store it under the variable page
+# set the p1 variable equal to the first page
+# set the p2 variable equal to the second page
+# set the p3 variable equal to the third page
+# set the p4 variable equal to the fourth page
+# set the p5 variable equal to the fifth page
   def find_page
     @page = Page.find_by(id:params[:id])
     @p1 = Page.first
@@ -186,14 +212,4 @@ before_action :update_save, only: [:index]
     @p4 = Page.fourth
     @p5 = Page.fifth
   end
-
-  def not_found
-    render :file => "#{Rails.root}/public/404.html",  layout: false, status: :not_found
-  end
-
-  # rescue to render 404 if page or os id is changed in the address bar
-  rescue_from ActiveRecord::RecordNotFound, NoMethodError do
-    not_found
-  end
-
 end
