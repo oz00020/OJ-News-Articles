@@ -6,12 +6,13 @@
 
   <div class="tile">
     <ul>
-      <strong>
-        <h4><%= link_to "Rank Article 1", new_page_rank_path(@p1) %></h4></strong>
+        <h4><strong><%= link_to "Rank Article 1", new_page_rank_path(@p1) %></h4></strong>
+        <br>
         <h5>Ranks previously given:</h5>
         <%= render @p1.ranks %>
+        <br>
         <h5>
-          Overall Rank:
+          <strong>Overall Rank:</strong>
         </h5>
         <div class="average-rank-rating" data-score=<%= @p1.ranks.average(:rating).round(0) %>></div>
 
@@ -22,12 +23,13 @@
 
   <div class="tile">
     <ul>
-      <strong>
-        <h4><%= link_to "Rank Article 2", new_page_rank_path(@p2) %></h4></strong>
+        <h4><strong><%= link_to "Rank Article 2", new_page_rank_path(@p2) %></h4></strong>
+        <br>
         <h5>Ranks previously given:</h5>
         <%= render @p2.ranks %>
+        <br>
         <h5>
-          Overall Rank:
+          <strong>Overall Rank:</strong>
         </h5>
         <div class="average-rank-rating" data-score=<%= @p2.ranks.average(:rating).round(0) %>></div>
 
@@ -38,12 +40,13 @@
 
   <div class="tile">
     <ul>
-      <strong>
-        <h4><%= link_to "Rank Article 3", new_page_rank_path(@p3) %></h4></strong>
+        <h4><strong><%= link_to "Rank Article 3", new_page_rank_path(@p3) %></h4></strong>
+        <br>
         <h5>Ranks previously given:</h5>
         <%= render @p3.ranks %>
+        <br>
         <h5>
-          Overall Rank:
+          <strong>Overall Rank:</strong>
         </h5>
         <div class="average-rank-rating" data-score=<%= @p3.ranks.average(:rating).round(0) %>></div>
 
@@ -54,12 +57,13 @@
 
   <div class="tile">
     <ul>
-      <strong>
-        <h4><%= link_to "Rank Article 4", new_page_rank_path(@p4) %></h4></strong>
+        <h4><strong><%= link_to "Rank Article 4", new_page_rank_path(@p4) %></h4></strong>
+        <br>
         <h5>Ranks previously given:</h5>
         <%= render @p4.ranks %>
+        <br>
         <h5>
-          Overall Rank:
+          <strong>Overall Rank:</strong>
         </h5>
         <div class="average-rank-rating" data-score=<%= @p4.ranks.average(:rating).round(0) %>></div>
 
@@ -70,12 +74,13 @@
 
   <div class="tile">
     <ul>
-      <strong>
-        <h4><%= link_to "Rank Article 5", new_page_rank_path(@p5) %></h4></strong>
+        <h4><strong><%= link_to "Rank Article 5", new_page_rank_path(@p5) %></h4></strong>
+        <br>
         <h5>Ranks previously given:</h5>
         <%= render @p5.ranks %>
+        <br>
         <h5>
-          Overall Rank:
+          <strong>Overall Rank:</strong>
         </h5>
         <div class="average-rank-rating" data-score=<%= @p5.ranks.average(:rating).round(0) %>></div>
 
