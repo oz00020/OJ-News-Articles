@@ -1,14 +1,21 @@
 <div class="tile">
-  <center>
-<p> Log in and add articles with pageid 1,2,3,4,5  to display the articles </p>
-    <% @pages.each do |page| %>
-    <% page.title %>
-    <div class="tile">
-      <a href="/pages/<%= page.id %>">
-        <%= image_tag page.page_image.url(:page_index) %>
-      </a>
-      </div>
+      <h4 align="left">Article 1</h4>
+      <h4 align="right">
+        <% if !@p1.blank? %>
+        <% if !@p1.ranks.blank? %>
+        Rank:
+        <%= @p1.ranks.average(:rating).round(0) %></h4>
     <% end %>
+    <% end %>
+      <h1>
+        <strong><%= @page1["title"] %></strong>
+      </h1>
 
-  </center>
+      <h3><%= @page1["body"][0]["model"]["text"]%></h3>
+
+      <p><%= @page1["body"][1]["model"]["text"]%></p>
+      <h1></h1>
+      <img src=<%= @page1["body"][2]["model"]["url"] %> alt=<%= @page1["body"][2]["model"]["altText"] %> height="220" width="420">
+
+<h1><%= link_to "Read more . . .", page_path(@p1) %></strong></h1>
 </div>

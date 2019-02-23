@@ -1,8 +1,10 @@
 <div class="tile">
   <h4 align="right">
     <% if !@p5.blank? %>
+    <% if !@p5.ranks.blank? %>
     Rank:
     <%= @p5.ranks.average(:rating).round(0) %></h4>
+    <% end %>
     <% end %>
   <h1>
     <strong><%= @page5["title"] %></strong>
@@ -20,9 +22,11 @@
 
   <br>
 
+<% if !@p5.blank? && !@p4.blank? && !@p3.blank? && !@p2.blank? && !@p1.blank? %>
   <a href=<%= rankingpage_path %>>
     <img align="right" src="http://freevector.co/wp-content/uploads/2011/01/70199-work-done.png" width="30" height="30">
   </a>
+<% end %>
 
 <% if !@p4.blank? %>
   <a href=<%= page_path(@p4) %>>

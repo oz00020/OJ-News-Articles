@@ -21,7 +21,7 @@ class RanksController < ApplicationController
 
   def destroy
     @rank.destroy
-    redirect_to rankingpage_path
+    redirect_to page_path(@page)
   end
 
   private

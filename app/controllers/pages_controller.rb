@@ -2,14 +2,14 @@
 class PagesController < ApplicationController
 
 before_action :find_page, only: [:show, :edit, :update, :destroy, :page1, :page2, :page3, :page4, :page5, :rankingpage, :index]
-before_action :page1, :page2, :page3, :page4, :page5, only: [:show]
-before_action :show, only: [:page1, :page2, :page3, :page4, :page5]
-before_action :average, only: [:show, :page1, :page2, :page3, :page4, :page5]
+before_action :page1, :page2, :page3, :page4, :page5, only: [:show,:index]
+before_action :show, only: [:average_eachpage, :page1, :page2, :page3, :page4, :page5, :rankingpage, :update_save]
+before_action :average, only: [:show, :page1, :page2, :page3, :page4, :page5, :index]
 before_action :average_eachpage, only: [:index, :rankingpage]
 before_action :update_save, only: [:index]
 
   def index
-    @pages = Page.all.order("rank_rating ASC")
+    @pages = Page.all.order("pageid ASC")
   end
 
   def update_save
@@ -66,14 +66,19 @@ before_action :update_save, only: [:index]
     case @page.pageid
     when 1
       render 'page1'
+      @p1 = @page
     when 2
       render 'page2'
+      @p2 = @page
     when 3
       render 'page3'
+      @p3 = @page
     when 4
       render 'page4'
+      @p4 = @page
     when 5
       render 'page5'
+      @p5 = @page
     else
       render 'otherpages'
     end
@@ -129,23 +134,23 @@ before_action :update_save, only: [:index]
 
     if !@page.blank?
     if !@p1.ranks.blank?
-      @p1.rank_rating = @p1.ranks.average(:rating).round(1)
+      @p1.rank_rating = @p1.ranks.average(:rating).round(2)
     end
 
     if !@p2.ranks.blank?
-      @p2.rank_rating = @p2.ranks.average(:rating).round(1)
+      @p2.rank_rating = @p2.ranks.average(:rating).round(2)
     end
 
     if !@p3.ranks.blank?
-      @p3.rank_rating = @p3.ranks.average(:rating).round(1)
+      @p3.rank_rating = @p3.ranks.average(:rating).round(2)
     end
 
     if !@p4.ranks.blank?
-      @p4.rank_rating = @p4.ranks.average(:rating).round(1)
+      @p4.rank_rating = @p4.ranks.average(:rating).round(2)
     end
 
     if !@p5.ranks.blank?
-      @p5.rank_rating = @p5.ranks.average(:rating).round(1)
+      @p5.rank_rating = @p5.ranks.average(:rating).round(2)
     end
   else
   end
@@ -153,24 +158,10 @@ before_action :update_save, only: [:index]
 
   def find_page
     @page = Page.find_by(id:params[:id])
-
-    if !@page.blank?
-    case @page.pageid
-    when 1
-      @p1 = @page
-    when 2
-      @p2 = @page
-    when 3
-      @p3 = @page
-    when 4
-      @p4 = @page
-    when 5
-      @p5 = @page
-    else
-    end
+    @p1 = Page.first
+    @p2 = Page.second
+    @p3 = Page.third
+    @p4 = Page.fourth
+    @p5 = Page.fifth
   end
-  end
-  # action to render 404 for invalid address
-
-
 end

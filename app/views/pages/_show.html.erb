@@ -1,8 +1,12 @@
 <div class="tile">
+<div class="row">
+
+
+  <div class="col-md-4 col-md-offset-0">
 
   <h1><%= @page.title %></h1>
   <h4>Rank:
-    <%= @page.rank_rating %></h4>
+    <%= @page.ranks.average(:rating).round(0) %></h4>
 
   <% if user_signed_in? %>
     <% if @page.user_id == current_user.id %>
@@ -28,7 +32,16 @@
     Average rank:
   </h4>
   <div class="average-rank-rating" data-score=<%= @average_rank %>></div>
+  <br>
+  <br>
+  <a href="/pages/<%= @page.id %>">
+ <%= image_tag @page.page_image.url(:page_index) %>
+ </a>
+  </div>
+
+  </div>
 </div>
+
 
 <script>
   $('.rank-rating').raty({

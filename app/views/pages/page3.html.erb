@@ -1,8 +1,10 @@
 <div class="tile">
   <h4 align="right">
     <% if !@p3.blank? %>
+    <% if !@p3.ranks.blank? %>
     Rank:
     <%= @p3.ranks.average(:rating).round(0) %></h4>
+<% end %>
 <% end %>
   <h1>
     <strong><%= @page3["title"] %></strong>
