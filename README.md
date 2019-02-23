@@ -29,5 +29,3 @@ Git used throughout.
 - Native app trainees (iOS or Android)
 - Web trainees (JS on AWS)
 - Backend trainees (Java, Scala, Ruby, Python, AWS, Jenkins, etc)
-
-#
