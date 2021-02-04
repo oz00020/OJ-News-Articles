@@ -13,26 +13,17 @@
 ActiveRecord::Schema.define(version: 2019_02_21_222537) do
 
   create_table "pages", force: :cascade do |t|
+    t.integer "pageid", null: false
     t.string "title"
-    t.integer "pageid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "page_image_file_name"
     t.string "page_image_content_type"
-    t.integer "page_image_file_size"
+    t.bigint "page_image_file_size"
     t.datetime "page_image_updated_at"
     t.integer "user_id"
     t.integer "rank"
     t.integer "rank_rating"
-  end
-
-  create_table "rails", force: :cascade do |t|
-    t.string "generate"
-    t.string "model"
-    t.string "Rank"
-    t.integer "rating"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "ranks", force: :cascade do |t|
