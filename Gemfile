@@ -17,7 +17,7 @@ gem 'devise', '~> 4.5'
 gem 'haml', '~> 5.0', '>= 5.0.4'
 gem 'jquery-rails'
 gem 'paperclip', '~> 6.1'
-gem 'simple_form', '~> 4.0', '>= 4.0.1'
+gem 'simple_form', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
